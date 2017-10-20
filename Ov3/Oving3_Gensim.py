@@ -1,5 +1,6 @@
 import random; random.seed(123)
 import codecs
+import nltk
 
 
 partitionedFile = []
@@ -7,7 +8,7 @@ partitionedFile = []
 try:
     f = codecs.open("theBook_Oving3.txt", "r", "utf-8");
     entirefile = f.read()
-    partitionedFile = entirefile.split('\n')
+    partitionedFile = entirefile.split('\n ')
 except FileNotFoundError:
     print("whoops, that file does not seem to exist")
 print(len(partitionedFile))
@@ -18,5 +19,6 @@ filteredList = [element for element in partitionedFile if 'Gutenberg' not in ele
 print("Filtrert liste")
 print(len(filteredList))
 
-#Tokenize the paragraphs. We now have a list of paragrahs, where the paragraphs are lists of words
-for
+#Tokenize the paragraphs. We now have a list of paragraphs, where the paragraphs are lists of words
+for i in range(len(filteredList)):
+    filteredList[i] = nltk.word_tokenize(filteredList[i])
